@@ -86,7 +86,8 @@ METRIC_MAPPING = {'euclidean': EuclideanDistance,
                   'sokalmichener': SokalMichenerDistance,
                   'sokalsneath': SokalSneathDistance,
                   'haversine': HaversineDistance,
-                  'pyfunc': PyFuncDistance}
+                  'pyfunc': PyFuncDistance,
+                  'sbgower':SBGowerDistance}
 
 
 def get_valid_metric_ids(L):
@@ -1125,3 +1126,6 @@ cdef class PyFuncDistance(DistanceMetric):
 
 cdef inline double fmax(double a, double b) nogil:
     return max(a, b)
+
+
+include '_dist_metrics_smartblade.pxi'
